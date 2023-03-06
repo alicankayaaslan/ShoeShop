@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var search: String = ""
+    @State private var selectedIndex: Int = 0
+    private let categories = ["All", "Jordan", "Nike", "Dunk", "Vans", "Adidas", "New Balance"]
     
     var body: some View {
         ZStack {
@@ -21,14 +22,46 @@ struct ContentView: View {
                 TagLineView()
                     .padding()
                 
-                HStack {
-                    TextField("Search Sneakers", text: $search)
-                        .padding()
-                }
-                    .background(Color.white)
-                    .cornerRadius(10)
-                    .padding()
+                SearchAndScanView()
                 
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(0 ..< categories.count) { i in
+                            CategoryView(isActive: i == selectedIndex, text: categories[i])
+                                .onTapGesture {
+                                    selectedIndex = i
+                                }
+                        }
+                    }
+                    .padding()
+                }
+                
+                Text("Popular")
+                    .font(.system(size: 24, weight: .bold, design: .serif))
+                    .padding(.horizontal)
+                
+                VStack {
+                    Image("airforce1")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 220, height: 200)
+                    
+                    Text("Air Jordan Cyan High")
+                        .fontWeight(.bold)
+                    
+                    HStack(spacing: 2) {
+                        ForEach(0 ..< 5) { item in
+                            Image(systemName: "star.fill")
+                                .symbolRenderingMode(.palette)
+                                .foregroundStyle(.yellow)
+                            .font(.system(size: 13))
+                        }
+                        Spacer()
+                        Text("1299$")
+                    }
+                }.frame(width: 173)
+                    .padding()
+                    .background(Color.white)
                 
             }
         }
@@ -88,5 +121,51 @@ struct TagLineView: View {
             .font(.system(size: 20, weight: .light, design: .monospaced))
         + Text("   Sneaker!")
             .font(.system(size: 20, weight: .bold, design: .serif))
+    }
+}
+
+struct SearchAndScanView: View {
+    
+    @State private var search: String = ""
+    
+    var body: some View {
+        HStack {
+            Image(systemName: "magnifyingglass.circle")
+                .padding(.trailing, 8)
+            TextField("Search Sneakers", text: $search)
+            Button {
+                //TO DO
+            } label: {
+                Image(systemName: "qrcode.viewfinder")
+                    .resizable()
+                    .frame(width: 28, height: 28)
+            }
+            
+        }.padding()
+            .background(Color.white)
+            .cornerRadius(10)
+            .padding(.horizontal)
+    }
+}
+
+struct CategoryView: View {
+    
+    
+    let isActive: Bool
+    let text: String
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            Text(text)
+                .font(.system(size: 18))
+                .fontWeight(.medium)
+                .foregroundColor(isActive ? Color(.black) : Color.black.opacity(0.5))
+            
+            if (isActive) {
+                Color(.black)
+                    .frame(width: 15, height: 2)
+                    .clipShape(Capsule())
+            }
+        }.padding(.trailing)
     }
 }
