@@ -13,56 +13,47 @@ struct ContentView: View {
     private let categories = ["All", "Jordan", "Nike", "Dunk", "Vans", "Adidas", "New Balance"]
     
     var body: some View {
+        
+        
+        
         ZStack {
             Color(.gray).opacity(0.15)
                 .ignoresSafeArea()
-            VStack (alignment: .leading) {
-                AppBarView()
-                
-                TagLineView()
-                    .padding()
-                
-                SearchAndScanView()
-                
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(0 ..< categories.count) { i in
-                            CategoryView(isActive: i == selectedIndex, text: categories[i])
-                                .onTapGesture {
-                                    selectedIndex = i
-                                }
+            ScrollView {
+                VStack (alignment: .leading) {
+                    AppBarView()
+                    
+                    TagLineView()
+                        .padding()
+                    
+                    SearchAndScanView()
+                    
+                    //MARK: Category View
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(0 ..< categories.count) { i in
+                                CategoryView(isActive: i == selectedIndex, text: categories[i])
+                                    .onTapGesture {
+                                        selectedIndex = i
+                                    }
+                            }
                         }
+                        .padding()
                     }
-                    .padding()
+                    
+                    Text("Popular")
+                        .font(.system(size: 24, weight: .bold, design: .serif))
+                        .padding(.horizontal)
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 5) {
+                            ForEach(shoes) { shoe in
+                                ProductCardRowView(shoes: Popular(name: shoe.name, image: shoe.image, price: shoe.price))
+                            }.padding(.trailing)
+                        }.padding(.leading)
+                    }
+                    
                 }
-                
-                Text("Popular")
-                    .font(.system(size: 24, weight: .bold, design: .serif))
-                    .padding(.horizontal)
-                
-                VStack {
-                    Image("airforce1")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 220, height: 200)
-                    
-                    Text("Air Jordan Cyan High")
-                        .fontWeight(.bold)
-                    
-                    HStack(spacing: 2) {
-                        ForEach(0 ..< 5) { item in
-                            Image(systemName: "star.fill")
-                                .symbolRenderingMode(.palette)
-                                .foregroundStyle(.yellow)
-                            .font(.system(size: 13))
-                        }
-                        Spacer()
-                        Text("1299$")
-                    }
-                }.frame(width: 173)
-                    .padding()
-                    .background(Color.white)
-                
             }
         }
     }
@@ -169,3 +160,4 @@ struct CategoryView: View {
         }.padding(.trailing)
     }
 }
+
