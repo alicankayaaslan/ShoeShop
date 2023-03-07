@@ -13,7 +13,7 @@ struct ProductCardRowView: View {
     var body: some View {
         
         ScrollView(.horizontal) {
-            HStack {
+            HStack() {
                     ProductCardView(shoes: Popular.init(name: shoes.name, image: shoes.image, price: shoes.price))
             }
             .padding(5)

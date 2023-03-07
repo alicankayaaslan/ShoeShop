@@ -14,6 +14,7 @@
 		3AFFEF9F29B7396700CBCDA5 /* Shoe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFEF9E29B7396700CBCDA5 /* Shoe.swift */; };
 		3AFFEFA529B7416200CBCDA5 /* ProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFEFA429B7416200CBCDA5 /* ProductCardView.swift */; };
 		3AFFEFA729B7423800CBCDA5 /* ProductCardRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFEFA629B7423800CBCDA5 /* ProductCardRowView.swift */; };
+		3AFFEFAA29B7768B00CBCDA5 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFEFA929B7768B00CBCDA5 /* HomeScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		3AFFEF9E29B7396700CBCDA5 /* Shoe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shoe.swift; sourceTree = "<group>"; };
 		3AFFEFA429B7416200CBCDA5 /* ProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardView.swift; sourceTree = "<group>"; };
 		3AFFEFA629B7423800CBCDA5 /* ProductCardRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardRowView.swift; sourceTree = "<group>"; };
+		3AFFEFA929B7768B00CBCDA5 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 		3A8E243129B215D600FAEB1B /* ShoeShop */ = {
 			isa = PBXGroup;
 			children = (
+				3AFFEFA829B7767400CBCDA5 /* Screens */,
 				3AFFEFA129B7412800CBCDA5 /* View */,
 				3AFFEF9D29B7395700CBCDA5 /* Model */,
 				3A8E243229B215D600FAEB1B /* ShoeShopApp.swift */,
@@ -90,6 +93,14 @@
 				3AFFEFA629B7423800CBCDA5 /* ProductCardRowView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		3AFFEFA829B7767400CBCDA5 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				3AFFEFA929B7768B00CBCDA5 /* HomeScreen.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +175,7 @@
 			files = (
 				3AFFEF9F29B7396700CBCDA5 /* Shoe.swift in Sources */,
 				3A8E243529B215D600FAEB1B /* ContentView.swift in Sources */,
+				3AFFEFAA29B7768B00CBCDA5 /* HomeScreen.swift in Sources */,
 				3AFFEFA729B7423800CBCDA5 /* ProductCardRowView.swift in Sources */,
 				3AFFEFA529B7416200CBCDA5 /* ProductCardView.swift in Sources */,
 				3A8E243329B215D600FAEB1B /* ShoeShopApp.swift in Sources */,
